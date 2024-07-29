@@ -1,0 +1,225 @@
+@font-face {
+    font-family: "inter";
+    src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+:root {
+    --blue: hsl(227, 92%, 58%);
+    --gunmetal: hsl(215, 31%, 21%);
+    --electric-blue: hsl(215, 17%, 45%);
+    --white: hsl(0, 0%, 100%);
+
+    --side-spacing: 24px;
+
+    --leading-normal: 1.1;
+    --leading-loose: 1.5;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "inter";
+    color: var(--gunmetal);
+
+    h1, h2, h3, h4, legend {
+        font-weight: 600;
+        line-height: var(--leading-normal);
+    }
+
+    h1, h2, h3, legend {
+        letter-spacing: -0.05em;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 1.333rem + 4.17vw, 4rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 0.333rem + 4.17vw, 3rem);
+    }
+
+    h3, legend {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: var(--leading-loose);
+    }
+
+    img,
+    input[type="number"] {
+        width: 100%;
+    }
+
+    section:not(.definition) {
+        padding-inline: var(--side-spacing);
+    }
+}
+
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 96px;
+    display: grid;
+    place-items: center;
+
+    .logo {
+        max-width: 36.7px;
+
+        @media (width >= 64em) {
+            max-width: 58.75px;
+        }
+    }
+}
+
+main {
+    .hero {
+        padding-block: 96px 217px;
+        background: linear-gradient(-45deg, hsla(216, 95%, 92%, 1) 0%, hsla(216, 95%, 92%, 0) 100%);
+        border-radius: 0 0 35px 35px;
+        position: relative;
+        
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            text-align: center;
+        }
+    }
+
+    .calculator {
+        position: relative;
+        background: var(--white);
+        padding: var(--side-spacing);
+        box-shadow: 16px 32px 56px 0 hsla(211, 40%, 69%, 0.25);
+        border-radius: 16px;
+        margin-block: -170px 72px;
+        z-index: 2;
+
+        fieldset {
+            border: none;
+            
+            > * {
+                margin-bottom: var(--side-spacing);
+            }
+            
+            > div {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px var(--side-spacing);
+
+                .metric-wrapper,
+                .imperial-wrapper {
+                    label {
+                        display: flex;
+                        align-items: center;
+                        gap: 18px;
+                        position: relative;
+                        font-size: 1rem;
+                        line-height: var(--leading-loose);
+                        font-weight: 600;
+
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 30px;
+                            width: 30px;
+                            border-radius: 50%;
+
+                            &:checked ~ .checker {
+                                background-color: hsl(from var(--blue) h s l / 0.15);
+                                border: none;
+                            }
+
+                            &:checked ~ .checker:after {
+                                display: block;
+                            }
+                        }
+
+                        .checker {
+                            border: 1px solid var(--electric-blue);
+                            height: 30px;
+                            width: 30px;
+                            background-color: var(--white);
+                            border-radius: 50%;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                display: none;
+                                inset: 8px;
+                                width: 15px;
+                                height: 15px;
+                                background: var(--blue);
+                                border-radius: 50%;
+                            }
+                        }
+                    } 
+                }
+
+                .height,
+                .weight {
+                    grid-column: 1 / span 2;
+
+                    label {
+                        font-size: 0.875rem;
+                        color: var(--electric-blue);
+                        line-height: var(--leading-loose);
+                    }
+
+                    .container {
+                        display: flex;
+                        gap: 16px;
+                        margin-top: 8px;
+                        position: relative;
+
+                        input {
+                            border-radius: 12px;
+                            border: 1px solid var(--electric-blue);
+                            font-size: 1.5rem;
+                            padding: 20px calc((1.5rem * 2) + (24px * 2)) 20px 24px;
+
+                            &:focus-visible {
+                                outline-color: var(--blue);
+                            }
+                        }
+
+                        .unit {
+                            position: absolute;
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+                            right: 0;
+                            padding: 20px 24px;
+                            font-size: 1.5rem;
+                            color: var(--blue);
+                            font-weight: 600;
+                            letter-spacing: -0.05em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .wrapper {
+            background: var(--blue);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+        }
+    }
+}
