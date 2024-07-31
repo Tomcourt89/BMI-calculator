@@ -37,7 +37,7 @@
                         <div>
                             <div class="metric-wrapper">
                                 <label for="metric">
-                                    <input type="radio" name="unit" id="metric" value="metric">
+                                    <input type="radio" name="unit" id="metric" value="metric" checked="checked">
                                     <span class="checker"></span>
                                     Metric
                                 </label>
@@ -73,12 +73,18 @@
     
                     <div class="welcome wrapper">
                         <h3>Welcome!</h3>
-                        <p>Enter your height and weight and you'll see your BMI result here</p>
+                        <p class="small">Enter your height and weight and you'll see your BMI result here</p>
                     </div>
                     <div class="calculated wrapper">
                         <div>
-                            <p>Your BMI is..</p>
+                            <p class="bmi">Your BMI is..</p>
                             <span class="result"></span>
+                        </div>
+
+                        <div class="ideal">
+                            <p class="small">
+                                <span></span>
+                            </p>
                         </div>
                     </div>
                 </form>
@@ -87,7 +93,7 @@
     
         <section class="definition">
             <!-- <img src="./assets/images/image-man-eating.webp" alt="Masculine presenting person smiling eating sushi"> -->
-            <img src="https://media.discordapp.net/attachments/1101497749930770504/1267548963225993256/GTlrttuW0AAQKS_.png?ex=66a93076&is=66a7def6&hm=0b6d1460ac33ae00c2adf39d8281dfb9b45c495428a0f2ea2d20394335ff9f41&=&format=webp&quality=lossless" alt=""> <!-- to stop him staring at me -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Oryctolagus_cuniculus_Rcdo.jpg/1200px-Oryctolagus_cuniculus_Rcdo.jpg" alt=""> <!-- to stop him staring at me -->
 
             <div>
                 <h2>What your BMI result means</h2>
@@ -99,25 +105,31 @@
             <ul>
                 <li>
                     <img src="./assets/images/icon-eating.svg" alt="Food icon">
-                    <h3>Healthy Eating</h3>
-                    <p>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
+                    <div>
+                        <h3>Healthy Eating</h3>
+                        <p>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
+                    </div>
                 </li>
                 <li>
                     <img src="./assets/images/icon-exercise.svg" alt="Exercise icon">
-                    <h3>Regular exercise</h3>
-                    <p>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity</p>
+                    <div>
+                        <h3>Regular exercise</h3>
+                        <p>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity</p>
+                    </div>
                 </li>
                 <li>
                     <img src="./assets/images/icon-sleep.svg" alt="Sleep icon">
-                    <h3>Adequate sleep</h3>
-                    <p>Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.</p>
+                    <div>
+                        <h3>Adequate sleep</h3>
+                        <p>Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.</p>
+                    </div>
                 </li>
             </ul>
         </section>
 
         <section class="limitations">
             <div class="row">
-                <div>
+                <div class="limit-text">
                     <h2>Limitations of BMI</h2>
                     <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
                 </div>

@@ -27,16 +27,16 @@ body {
     font-family: "inter";
     color: var(--gunmetal);
 
-    h1, h2, h3, h4, legend {
+    h1, h2, h3, h4, legend, .result {
         font-weight: 600;
         line-height: var(--leading-normal);
     }
 
-    h1, h2, h3, legend {
+    h1, h2, h3, h4, legend {
         letter-spacing: -0.05em;
     }
 
-    h1 {
+    h1, .result {
         font-size: clamp(3rem, 1.333rem + 4.17vw, 4rem);
     }
 
@@ -56,6 +56,7 @@ body {
         font-size: 1rem;
         font-weight: 400;
         line-height: var(--leading-loose);
+        color: var(--electric-blue);
     }
 
     img,
@@ -220,6 +221,125 @@ main {
             color: var(--white);
             padding: 32px;
             border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--side-spacing);
+
+            .small {
+                font-size: 0.875rem;
+                color: var(--white);
+
+                span {
+                    font-weight: 600;
+                }
+            }
+    
+            &.calculated {
+                display: none;
+
+                .bmi {
+                    font-weight: 600;
+                    color: var(--white);
+                }
+
+                .result {
+                    display: block;
+                    margin-top: 8px;
+                    color: var(--white);
+                }
+            }
+        }
+
+        
+    }
+
+    .definition {
+        > div {
+            padding: 48px var(--side-spacing) 64px;
+
+            h2 {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    .steps {
+        padding-block: 64px 36px;
+        background: linear-gradient(-45deg, hsla(216, 95%, 92%, 0.25) 0%, hsla(216, 95%, 92%, 0) 100%);
+
+        ul {
+            list-style-type: none;
+
+            li {
+                margin-block: 20px;
+
+                img {
+                    max-width: 64px;
+                    margin-bottom: 32px;
+                }
+
+                div h3 {
+                    margin-bottom: var(--side-spacing);
+                }
+            }
+        }
+    }
+
+    .limitations {
+        padding-block: 72px 96px;
+        display: grid;
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-block: 8px;
+
+            .limit-text {
+                text-align: center;
+                margin-bottom: 48px;
+                
+                h2 {
+                    margin-bottom: 32px;
+                }
+            }
+
+            .card {
+                box-shadow: 16px 32px 56px 0 hsla(211, 40%, 69%, 0.25);
+                background: var(--white);
+                border-radius: 16px;
+                padding: var(--side-spacing);
+
+                h4 {
+                    margin-bottom: 16px;
+                    display: flex;
+                    align-items: center;
+
+                    &::before {
+                        margin-right: 16px;
+                    }
+
+                    &.gender::before {
+                        content: url(../assets/images/icon-gender.svg);
+                    }
+
+                    &.age::before {
+                        content: url(../assets/images/icon-age.svg);
+                    }
+
+                    &.muscle::before {
+                        content: url(../assets/images/icon-muscle.svg);
+                    }
+
+                    &.pregnancy::before {
+                        content: url(../assets/images/icon-pregnancy.svg);
+                    }
+
+                    &.race::before {
+                        content: url(../assets/images/icon-race.svg);
+                    }
+                }
+            }
         }
     }
 }
