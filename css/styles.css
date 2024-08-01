@@ -13,6 +13,10 @@
 
     --leading-normal: 1.1;
     --leading-loose: 1.5;
+
+    @media(width >= 40em) {
+        --side-spacing: 40px;
+    }
 }
 
 *,
@@ -98,29 +102,42 @@ main {
             flex-direction: column;
             gap: 24px;
             text-align: center;
+            align-items: center;
+        }
+
+        @media(width >= 40em) {
+            padding-block: 112px 286px;
+
+            h1 {
+                max-width: 16ch;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     }
 
     .calculator {
         position: relative;
         background: var(--white);
-        padding: var(--side-spacing);
+        padding: 24px;
         box-shadow: 16px 32px 56px 0 hsla(211, 40%, 69%, 0.25);
         border-radius: 16px;
         margin-block: -170px 72px;
         z-index: 2;
+        overflow: hidden;
 
         fieldset {
             border: none;
             
             > * {
-                margin-bottom: var(--side-spacing);
+                margin-bottom: 24px;
             }
             
             > div {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 16px var(--side-spacing);
+                gap: 16px 24px;
 
                 .metric-wrapper,
                 .imperial-wrapper {
@@ -192,7 +209,7 @@ main {
                             border-radius: 12px;
                             border: 1px solid var(--electric-blue);
                             font-size: 1.5rem;
-                            padding: 20px calc((1.5rem * 2) + (24px * 2)) 20px 24px;
+                            padding: 20px 15% 20px 24px;
 
                             &:focus-visible {
                                 outline-color: var(--blue);
@@ -213,6 +230,16 @@ main {
                         }
                     }
                 }
+
+                .height:has(.container input ~ *) {
+                    grid-row: 1;
+                    grid-column: 1 / span 2;
+                }
+
+                .height:has(.container input ~ *) ~ .weight {
+                    grid-row: 2;
+                    grid-column: 1 / span 2;
+                }
             }
         }
 
@@ -223,7 +250,7 @@ main {
             border-radius: 16px;
             display: flex;
             flex-direction: column;
-            gap: var(--side-spacing);
+            gap: 24px;
 
             .small {
                 font-size: 0.875rem;
@@ -249,13 +276,39 @@ main {
                 }
             }
         }
+    
+        @media(width >= 40em) {
+            margin-block: -246px 96px;
 
-        
+            fieldset {
+                > * {
+                    margin-bottom: 32px;
+                }
+
+                > div {
+                    align-items: end;
+
+                    .height,
+                    .weight {
+                        grid-column: auto;
+
+                        .container {
+                            gap: 24px;
+                        }
+                    }
+                }
+            }
+
+            .wrapper {
+                border-top-right-radius: 10vw;
+                border-bottom-right-radius: 10vw;
+            }
+        } 
     }
 
     .definition {
         > div {
-            padding: 48px var(--side-spacing) 64px;
+            padding: 48px 24px 64px;
 
             h2 {
                 margin-bottom: 32px;
@@ -279,7 +332,7 @@ main {
                 }
 
                 div h3 {
-                    margin-bottom: var(--side-spacing);
+                    margin-bottom: 24px;
                 }
             }
         }
@@ -288,56 +341,50 @@ main {
     .limitations {
         padding-block: 72px 96px;
         display: grid;
+        gap: 16px;
 
-        .row {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-block: 8px;
-
-            .limit-text {
-                text-align: center;
-                margin-bottom: 48px;
+        .limit-text {
+            text-align: center;
+            margin-bottom: 48px;
                 
-                h2 {
-                    margin-bottom: 32px;
-                }
+            h2 {
+                margin-bottom: 32px;
             }
+        }
 
-            .card {
-                box-shadow: 16px 32px 56px 0 hsla(211, 40%, 69%, 0.25);
-                background: var(--white);
-                border-radius: 16px;
-                padding: var(--side-spacing);
+        .card {
+            box-shadow: 16px 32px 56px 0 hsla(211, 40%, 69%, 0.25);
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
 
-                h4 {
-                    margin-bottom: 16px;
-                    display: flex;
-                    align-items: center;
+            h4 {
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
 
-                    &::before {
-                        margin-right: 16px;
-                    }
+                &::before {
+                    margin-right: 16px;
+                }
 
-                    &.gender::before {
-                        content: url(../assets/images/icon-gender.svg);
-                    }
+                &.gender::before {
+                    content: url(../assets/images/icon-gender.svg);
+                }
 
-                    &.age::before {
-                        content: url(../assets/images/icon-age.svg);
-                    }
+                &.age::before {
+                    content: url(../assets/images/icon-age.svg);
+                }
 
-                    &.muscle::before {
-                        content: url(../assets/images/icon-muscle.svg);
-                    }
+                &.muscle::before {
+                    content: url(../assets/images/icon-muscle.svg);
+                }
 
-                    &.pregnancy::before {
-                        content: url(../assets/images/icon-pregnancy.svg);
-                    }
+                &.pregnancy::before {
+                    content: url(../assets/images/icon-pregnancy.svg);
+                }
 
-                    &.race::before {
-                        content: url(../assets/images/icon-race.svg);
-                    }
+                 &.race::before {
+                     content: url(../assets/images/icon-race.svg);
                 }
             }
         }

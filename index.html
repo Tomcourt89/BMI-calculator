@@ -24,7 +24,7 @@
         <article>
             <section class="hero">
                 <div>
-                    <h1>Body Mass Index Calculator</h1>
+                    <h1>Body Mass <span>Index Calculator</span></h1>
                     <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
                 </div>
             </section>
@@ -56,16 +56,16 @@
                             <div class="height">
                                 <label for="height">Height</label>
                                 <div class="container">
-                                    <input type="number" name="height" id="height"/>
-                                    <span class="unit"></span>
+                                    <input type="number" name="height" id="height"/> <!-- duplicate for imperial -->
+                                    <span class="unit"></span> <!-- duplicate for imperial *update units* -->
                                 </div>
                             </div>
         
                             <div class="weight">
                                 <label for="weight">Weight</label>
                                 <div class="container">
-                                    <input type="number" name="weight" id="weight"/>
-                                    <span class="unit"></span>
+                                    <input type="number" name="weight" id="weight"/> <!-- duplicate for imperial -->
+                                    <span class="unit"></span> <!-- duplicate for imperial *update units* -->
                                 </div>
                             </div>
                         </div>
@@ -128,38 +128,32 @@
         </section>
 
         <section class="limitations">
-            <div class="row">
-                <div class="limit-text">
-                    <h2>Limitations of BMI</h2>
-                    <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
-                </div>
-
-                <div class="card">
-                    <h4 class="gender">Gender</h4>
-                    <p>The development and body fat composition of girls and boys vary with age. Consequently, a child's age and gender are considered when evaluating their BMI.</p>
-                </div>
+            <div class="limit-text row1">
+                <h2>Limitations of BMI</h2>
+                <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
             </div>
 
-            <div class="row">
-                <div class="card">
-                    <h4 class="age">Age</h4>
-                    <p>In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content.</p>
-                </div>
-                <div class="card">
-                    <h4 class="muscle">Muscle</h4>
-                    <p>BMI may masclassify muscular individuals as overweight or obese, as it doesn't differentiate muscle from fat.</p>
-                </div>
+            <div class="card row1">
+                <h4 class="gender">Gender</h4>
+                <p>The development and body fat composition of girls and boys vary with age. Consequently, a child's age and gender are considered when evaluating their BMI.</p>
             </div>
 
-            <div class="row">
-                <div class="card">
-                    <h4 class="pregnancy">Pregnancy</h4>
-                    <p>Expectant mothers experience weight gain due to their growing baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise health risks for both mother and child.</p>
-                </div>
-                <div class="card">
-                    <h4 class="race">Race</h4>
-                    <p>Certain health concerns may affect individuals of some Black and Asian origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice nurse.</p>
-                </div>
+            <div class="card row2">
+                <h4 class="age">Age</h4>
+                <p>In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content.</p>
+            </div>
+            <div class="card row2">
+                   <h4 class="muscle">Muscle</h4>
+                <p>BMI may misclassify muscular individuals as overweight or obese, as it doesn't differentiate muscle from fat.</p>
+            </div>
+
+            <div class="card row3">
+                <h4 class="pregnancy">Pregnancy</h4>
+                <p>Expectant mothers experience weight gain due to their growing baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise health risks for both mother and child.</p>
+            </div>
+            <div class="card row3">
+                <h4 class="race">Race</h4>
+                <p>Certain health concerns may affect individuals of some Black and Asian origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice nurse.</p>
             </div>
         </section>
     </main>
