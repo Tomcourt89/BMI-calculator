@@ -17,6 +17,10 @@
     @media(width >= 40em) {
         --side-spacing: 40px;
     }
+
+    @media(width >= 64em) {
+        --side-spacing: 116px;
+    }
 }
 
 *,
@@ -88,6 +92,11 @@ header {
             max-width: 58.75px;
         }
     }
+
+    @media (width >= 64em) {
+        padding: 75px var(--side-spacing);
+        justify-content: start;
+    }
 }
 
 main {
@@ -113,6 +122,21 @@ main {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+        }
+
+        @media(width >= 64em) {
+            display: grid;
+            align-items: center;
+            padding-block: 266px 200px;
+            padding-inline: calc((var(--side-spacing) - 24px)) 300px !important;
+
+            h1 {
+                justify-content: flex-start;
+            }
+            > div {
+                max-width: 465px;
+                text-align: left;
             }
         }
     }
@@ -304,6 +328,33 @@ main {
                 border-bottom-right-radius: 10vw;
             }
         } 
+
+        @media (width >= 64em) {
+            max-width: 564px;
+            margin: 0;
+        }
+    }
+
+    @media(width >= 64em) {
+        article {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            margin-inline: 24px;
+
+            .hero {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            section:has(.calculator) {
+                grid-column: 2 / span 2;
+                grid-row: 1;
+                justify-self: end;
+                margin-inline: calc(140px - 24px);
+                padding: 0;
+            }
+        }
     }
 
     .definition {
@@ -333,6 +384,32 @@ main {
                 max-width: 435px;
                 align-self: end;
             }
+        }
+
+        @media(width >= 64em) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 130px;
+            align-items: end;
+            margin-block: 65px;
+            padding-inline: 140px;
+
+            > div {
+                padding: 40px 0;
+                position: relative;
+
+                &::before {
+                    --img-height: 200px;
+
+                    content: '';
+                    position: absolute;
+                    top: calc(var(--img-height) * -1);
+                    right: 27px;
+                    height: var(--img-height);
+                    width: 85px;
+                    background: url(../assets/images/pattern-curved-line-left.svg) center / contain no-repeat;
+                }
+            }       
         }
     }
 
@@ -365,6 +442,24 @@ main {
                 display: flex;
                 gap: 40px;
                 margin-bottom: 40px;
+            }
+        }
+
+        @media (width >= 64em) {
+            margin-inline: 24px;
+            border-radius: 35px;
+
+            ul {
+                display: flex;
+                gap: 32px;
+
+                li {
+                    flex-direction: column;
+
+                    img {
+                        margin: 0;
+                    }
+                }
             }
         }
     }
@@ -437,5 +532,69 @@ main {
                 }
             }
         }
+
+        @media (width >= 64em) {
+            margin-inline: 24px;
+            gap: 24px 32px;
+            grid-template-columns: repeat(6, 1fr);
+            position: relative;
+
+            .row1 {
+                grid-row: 1;
+            }
+
+            .row2 {
+                grid-row: 2;
+            }
+
+            .row3 {
+                grid-row: 3;
+            }
+
+            .limit-text {
+                text-align: left;
+                grid-column: 1 / span 3;
+            }
+
+            .card {
+                max-width: 365px;
+
+                &:nth-of-type(2) {
+                    justify-self: center;
+                    grid-column: span 3;
+                }
+
+                &:nth-of-type(3) {
+                    grid-column: 3 / span 2;
+                }
+
+                &:nth-of-type(4) {
+                    grid-column: 5 / span 2;
+                }
+
+                &:nth-of-type(5) {
+                    grid-column: 2 / span 2;
+                }
+
+                &:nth-of-type(6) {
+                    grid-column: 4 / span 2;
+                }
+
+                &:last-child {
+                    transform: unset;
+                }
+            }
+
+            &::before {
+                content: '';
+                grid-row: 2;
+                grid-column: 1 / span 2;
+                justify-self: center;
+                margin-top: -13px;
+                height: 122px;
+                width: 94px;
+                background: url(../assets/images/pattern-curved-line-right.svg) center / contain no-repeat;
+            }
+        }       
     }
 }
